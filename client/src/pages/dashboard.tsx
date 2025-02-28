@@ -1,6 +1,8 @@
 import StatsCards from "@/components/dashboard/stats-cards";
 import FuelChart from "@/components/dashboard/fuel-chart";
 import FuelPriceForm from "@/components/dashboard/fuel-price-form";
+import FinanceChart from "@/components/dashboard/finance-chart";
+import FinanceForm from "@/components/dashboard/finance-form";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function Dashboard() {
@@ -21,24 +23,9 @@ export default function Dashboard() {
           <FuelPriceForm />
         </div>
 
-        <div className="grid gap-4">
-          <Card>
-            <CardHeader>
-              <CardTitle>Recent Activity</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p>Activity list coming soon...</p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>Popular Routes</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p>Route stats coming soon...</p>
-            </CardContent>
-          </Card>
+        <div className="space-y-4">
+          <FinanceChart />
+          <FinanceForm />
         </div>
       </div>
     </div>

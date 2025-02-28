@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer } from "http";
 import { storage } from "./storage";
-import { insertFuelPriceSchema } from "@shared/schema";
+import { insertFuelPriceSchema, insertFinanceSchema } from "@shared/schema";
 
 export async function registerRoutes(app: Express) {
   // Aircraft routes
@@ -47,6 +47,16 @@ export async function registerRoutes(app: Express) {
     const days = parseInt(req.query.days as string) || 30;
     const finances = await storage.getFinances(days);
     res.json(finances);
+  });
+
+  app.post("/api/finances", async (req, res) => {
+    try {
+      const data = insertFinanceSchema.parse(req.body);
+      const finance = await storage.addFinance(data);
+      res.json(finance);
+    } catch (error) {
+      res.status(400).json({ message: "Invalid finance data" });
+    }
   });
 
   return createServer(app);
