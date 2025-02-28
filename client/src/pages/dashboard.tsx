@@ -1,5 +1,7 @@
 import StatsCards from "@/components/dashboard/stats-cards";
 import FuelChart from "@/components/dashboard/fuel-chart";
+import FuelPriceForm from "@/components/dashboard/fuel-price-form";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function Dashboard() {
   return (
@@ -12,10 +14,13 @@ export default function Dashboard() {
       </div>
 
       <StatsCards />
-      
+
       <div className="grid gap-4 md:grid-cols-2">
-        <FuelChart />
-        
+        <div className="space-y-4">
+          <FuelChart />
+          <FuelPriceForm />
+        </div>
+
         <div className="grid gap-4">
           <Card>
             <CardHeader>
@@ -25,7 +30,7 @@ export default function Dashboard() {
               <p>Activity list coming soon...</p>
             </CardContent>
           </Card>
-          
+
           <Card>
             <CardHeader>
               <CardTitle>Popular Routes</CardTitle>
@@ -39,5 +44,3 @@ export default function Dashboard() {
     </div>
   );
 }
-
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";

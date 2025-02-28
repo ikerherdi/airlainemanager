@@ -28,18 +28,17 @@ export default function Sidebar() {
             <ul role="list" className="space-y-1">
               {navigation.map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href}>
-                    <a
-                      className={cn(
-                        location === item.href
-                          ? "bg-[#009CDC] text-white"
-                          : "text-gray-300 hover:bg-[#004480] hover:text-white",
-                        "group flex gap-x-3 rounded-md p-2 mx-2 text-sm font-semibold leading-6"
-                      )}
-                    >
-                      <item.icon className="h-6 w-6 shrink-0" />
-                      {item.name}
-                    </a>
+                  <Link 
+                    href={item.href}
+                    className={cn(
+                      location === item.href
+                        ? "bg-[#009CDC] text-white"
+                        : "text-gray-300 hover:bg-[#004480] hover:text-white",
+                      "group flex gap-x-3 rounded-md p-2 mx-2 text-sm font-semibold leading-6"
+                    )}
+                  >
+                    <item.icon className="h-6 w-6 shrink-0" />
+                    {item.name}
                   </Link>
                 </li>
               ))}
